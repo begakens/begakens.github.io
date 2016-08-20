@@ -11,7 +11,7 @@ body {
 }
 
 body {
-    font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
 }
 
 hr {
@@ -29,14 +29,17 @@ a {
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
+    font-weight:bold;
 }
 
 a:hover,
 a:focus {
-    color: rgb(202, 177, 100);
+    color: #7f6b2b;
+    
 }
 
-h1,
+h1 {font-size:100px !important; color:#444444; font-family: 'Alex Brush', 'Open Sans','Helvetica Neue',Arial,sans-serif; font-weight:bold; margin-bottom:-20px;}
+
 h2,
 h3,
 h4,
@@ -47,8 +50,9 @@ h6 {
 
 p {
     margin-bottom: 20px;
-    font-size: 12px;
-    line-height: 1.5;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1;
 }
 
 .bg-primary {
@@ -69,7 +73,7 @@ p {
 }
 
 section {
-    padding: 100px 0;
+    padding: 50px 0;
 }
 
 aside {
@@ -143,7 +147,7 @@ aside {
 
     .navbar-default .nav > li>a,
     .navbar-default .nav>li>a:focus {
-        color: rgba(255,255,255,.7);
+        color: rgba(68,68,68,.7);
     }
 
     .navbar-default .nav > li>a:hover,
@@ -183,26 +187,28 @@ header {
     min-height: auto;
     text-align: center;
     color: #000;
-    background-image: url(../img/header.jpg);
-    background-position: center;
+    background-image: url(../img/header7.jpg);
+    background-position: 45%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    height:100%;
 }
 
 header .header-content {
     position: relative;
     width: 100%;
-    padding: 100px 15px;
+    padding: 100px 15px 20px 15px;
     text-align: center;
+    height:100%;
 }
 
-header .header-content .header-content-inner h1 {
+/*header .header-content .header-content-inner h1 {
     margin-top: 0;
     margin-bottom: 0;
     font-weight: 700;
-}
+}*/
 
 header .header-content .header-content-inner hr {
     margin: 30px auto;
@@ -222,17 +228,19 @@ header .header-content .header-content-inner p {
 
     header .header-content {
         position: absolute;
-        top: 50%;
+        /*top: 50%;*/
         padding: 0 50px;
-        -webkit-transform: translateY(-50%);
+        /*-webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
+        transform: translateY(-50%);*/
+        height:100%;
     }
 
     header .header-content .header-content-inner {
         margin-right: auto;
         margin-left: auto;
         max-width: 1000px;
+        margin-top:10%;
     }
 
     header .header-content .header-content-inner p {
@@ -276,9 +284,9 @@ header .header-content .header-content-inner p {
     width: 100%;
     height: 100%;
     text-align: center;
-    color: #fff;
-    opacity: 0;
-    background: rgba(202,177,100,.8);
+    color: #000;
+    opacity: 1;
+    /*background: rgba(202,177,100,.8);*/
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -290,7 +298,10 @@ header .header-content .header-content-inner p {
     width: 100%;
     text-align: center;
     transform: translateY(-50%);
+    height:100%;
 }
+
+.project-name i{float:right; vertical-align:middle; }
 
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category,
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
@@ -306,10 +317,24 @@ header .header-content .header-content-inner p {
 
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
     font-size: 18px;
+    text-align:left;
+    /*margin-top:50%;*/
+    background-color:#FFF;
+    opacity: .8;
+    bottom:0;
+    position:absolute;
+    width:100%;
 }
 
 .portfolio-box:hover .portfolio-box-caption {
     opacity: 1;
+}
+
+.CountdownBox {color:#444444; position:absolute; bottom:0; margin-left:auto; margin-right:auto; left:0; right:0; background-color:rgba(255, 255, 255, 0.6); width:100%;}
+
+@media(max-width:660px) 
+{
+    h1 {font-size:40px !important;}
 }
 
 @media(min-width:768px) {
@@ -475,6 +500,79 @@ img::-moz-selection {
     background: 0 0;
 }
 
+#countdown {font-size:20px;}
+
 body {
     webkit-tap-highlight-color: #222;
 }
+
+  /* entire container, keeps perspective */
+  .flip-container {
+	perspective: 1000;
+	transform-style: preserve-3d;
+}
+
+	.flip-container:active .flipper, .flip-container.active .flipper {
+		transform: rotateY(180deg);
+	}
+ 
+    .flip-container:active .back{
+		transform: rotateY(0deg);
+	}
+	.flip-container:active .front{
+	    transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back {
+	width: 100%;
+    height:100%;
+    min-height:175px;
+    cursor:pointer;
+}
+
+.flip-container, .img-responsive {
+    margin: 0;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+	position: absolute;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    padding:2%;
+    border:solid thin #7f6b2b;
+	transform: rotateY(180deg);
+    text-align:center;
+    background-color:#FFF6E1;
+}         
+
+.GoldButton{background: 0 0; border: 2px solid #BAA36C; border-radius: 0;  color: #BAA36C; display: inline-block; font-size: 16px; margin: 1em 0; padding: .3em .7em!important; -webkit-appearance: none;}     
+.GoldButton:active, .GoldButton:hover  {color: #fff; background-color: #BAA36C; border-color: #BAA36C; text-decoration: none;}
+
+#frmRSVP {float:none; background-color: #BAA36C; width:90%; max-width:500px; margin-left:auto;margin-right:auto; padding:30px; margin-bottom:20px;}
+#frmRSVP input[type="text"], textarea{width:100%; resize:none; margin-bottom:20px;}
+#frmRSVP button{width:100%; background-color:#BAA36C; border:solid white 2px; color:white; font-weight:bold; height:40px;}
+#frmRSVP button:hover{background-color:#7f6b2b; -o-transition:.5s; -ms-transition:.5s; -moz-transition:.5s; -webkit-transition:.5s;}
+.RSVPChk {width:10%; -ms-transform: scale(2); /* IE */ -moz-transform: scale(2); /* FF */ -webkit-transform: scale(2); /* Safari and Chrome */ -o-transform: scale(2); /* Opera */ padding: 10px;}

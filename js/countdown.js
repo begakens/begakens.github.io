@@ -1,37 +1,61 @@
 
-var end = new Date('06/26/2016 12:1 AM');
+    countdown();
+    setInterval(countdown, 1000);
 
-    var _second = 1000;
-    var _minute = _second * 60;
-    var _hour = _minute * 60;
-    var _day = _hour * 24;
-    var timer;
+    function countdown()
+    {
+        var startDateTime = moment();
+        var endDateTime = moment('2016-05-26 12:30:00');
 
-    function showRemaining() {
-        var now = new Date();
-        var distance = end - now;
-        if (distance < 0) {
+        var timeLeft = endDateTime.diff(startDateTime, 'milliseconds', true);
 
-            clearInterval(timer);
-            document.getElementById('countdown').innerHTML = 'MARRIED!';
+        var years = Math.floor(moment.duration(timeLeft).asYears());
 
-            return;
+        endDateTime = endDateTime.subtract(years, 'years');
+        timeLeft = endDateTime.diff(startDateTime, 'milliseconds', true);
+
+        var months = Math.floor(moment.duration(timeLeft).asMonths());
+
+        endDateTime = endDateTime.subtract(months, 'months');
+        timeLeft = endDateTime.diff(startDateTime, 'milliseconds', true);
+
+        var days = Math.floor(moment.duration(timeLeft).asDays());
+
+        endDateTime = endDateTime.subtract(days, 'days');
+        timeLeft = endDateTime.diff(startDateTime, 'milliseconds', true);
+
+        var hours = Math.floor(moment.duration(timeLeft).asHours());
+
+        endDateTime = endDateTime.subtract(hours, 'hours');
+        timeLeft = endDateTime.diff(startDateTime, 'milliseconds', true);
+
+        var minutes = Math.floor(moment.duration(timeLeft).asMinutes());
+
+        endDateTime = endDateTime.subtract(minutes, 'minutes');
+        timeLeft = endDateTime.diff(startDateTime, 'milliseconds', true);
+
+        var seconds = Math.floor(moment.duration(timeLeft).asSeconds());
+
+        //if (hours > 0 && hours < 2)
+        //{
+        //    document.getElementById('countdown').innerHTML = months + ' month ' + days + ' days ' + hours + ' hour';
+        //}
+        //else
+        //{
+        //    document.getElementById('countdown').innerHTML = months + ' month ' + days + ' days ' + hours + ' hours';
+        //}
+
+        if (hours > 0 && hours < 2) {
+            document.getElementById('countdown').innerHTML = days + ' days ' + hours + ' hour ' + minutes + ' minutes';
         }
-        var days = Math.floor(distance / _day);
-        var hours = Math.floor((distance % _day) / _hour);
-        var minutes = Math.floor((distance % _hour) / _minute);
-        var seconds = Math.floor((distance % _minute) / _second);
-
-        document.getElementById('countdown').innerHTML = days + ' days ';
-        if (hours > 0 && hours < 2)
-        {
-        document.getElementById('countdown').innerHTML += hours + ' hour ';
+        else {
+            document.getElementById('countdown').innerHTML = days + ' days ' + hours + ' hours ' + minutes + ' minutes';
         }
-        else{document.getElementById('countdown').innerHTML += hours + ' hours ';}
-        
-        document.getElementById('countdown').innerHTML += minutes + ' minutes ';
-        
-        document.getElementById('countdown').innerHTML += seconds + ' secs';
+
     }
 
-    timer = setInterval(showRemaining, 1000);
+
+
+
+    
+    
