@@ -1,7 +1,6 @@
-function timeSince() 
+	
+function timeSince(date) 
 {
-	var date = new Date("Jun 26, 2016 12:30:00");
-
     var seconds = Math.floor((new Date() - date) / 1000);
 
     var interval = Math.floor(seconds / 31536000);
@@ -26,6 +25,4 @@ function timeSince()
         return interval + " minutes";
     }
     return Math.floor(seconds) + " seconds";
-	
-	document.getElementById('countdown').innerHTML = months + ' months ' + days + ' days ' + hours + ' hour ' + minutes + ' minutes';
 }
