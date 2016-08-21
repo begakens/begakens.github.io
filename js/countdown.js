@@ -4,8 +4,8 @@
 
     function countdown()
     {
-        var startDateTime = moment();
-        var endDateTime = moment('2016-05-26 12:30:00');
+        var startDateTime = moment('2016-06-26 12:30:00');
+        var endDateTime = moment();
 
         var timeLeft = endDateTime.diff(startDateTime, 'milliseconds', true);
 
@@ -46,10 +46,10 @@
         //}
 
         if (hours > 0 && hours < 2) {
-            document.getElementById('countdown').innerHTML = days + ' days ' + hours + ' hour ' + minutes + ' minutes';
+            document.getElementById('countdown').innerHTML = months + ' month ' +  days + ' days ' + hours + ' hour';
         }
         else {
-            document.getElementById('countdown').innerHTML = days + ' days ' + hours + ' hours ' + minutes + ' minutes';
+            document.getElementById('countdown').innerHTML = months + ' month ' +  days + ' days ' + hours + ' hours';
         }
 
     }
